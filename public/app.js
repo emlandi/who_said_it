@@ -10,8 +10,12 @@ $('#person2').click(function(){
   $('#person1').attr("class", "");
 });
 
-//next button removes border/class
+//next button removes border/class/img
 $('#next').click(function(){
   $('#person1').attr("src", "").attr("class", "");
   $('#person2').attr("src", "").attr("class", "");
 });
+
+
+
+
