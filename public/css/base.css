@@ -36,20 +36,6 @@ input {
   display: inline-block;
 
 }
-/*
-#person1 {
-  float: left;
-  margin-left: 25%;
-}
-
-#person2 {
-  float: right;
-  margin-right: 25%;
-}
-
-#next {
-  position: center;
-}*/
 
 .clicked {
   border: medium solid #262626;
@@ -63,5 +49,17 @@ footer {
   background-color: #04B9FF;
   color: #FFFCFF;
   text-align: center;
+  text-decoration: none;
   padding: .5%;
+}
+
+a,
+a:link {
+  color: #FFFCFF;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #262626;
 }
