@@ -4,6 +4,8 @@ body {
   color: #262626;
   font-size: 1em;
   padding: 1em;
+  text-align: center;
+  line-height: 1.25em;
 }
 
 h1 {
@@ -31,25 +33,29 @@ input {
   background-color: #04B9FF;
   color: #FFFCFF;
   text-align: center;
-  padding: .5%;
-  margin-left: 20%;
+  padding: .5em;
+  margin: 5%;
   display: inline-block;
-
 }
 
 .clicked {
   border: medium solid #262626;
 }
 
+#answer {
+  font-size: 2em;
+  text-transform: uppercase;;
+}
+
 footer {
   position: fixed;
+  height: 5.5em;
   left: 0;
   bottom: 0;
   right: 0;
   background-color: #04B9FF;
   color: #FFFCFF;
   text-align: center;
-  text-decoration: none;
   padding: .5%;
 }
 
