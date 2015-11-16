@@ -27,6 +27,7 @@ blockquote {
   font-size:  3em;
   text-align: center;
   color: #262626;
+  line-height: 1.35em;
 }
 
 input {
@@ -44,7 +45,8 @@ input {
 
 #answer {
   font-size: 2em;
-  text-transform: uppercase;;
+  text-transform: uppercase;
+  margin-bottom: 5em;
 }
 
 footer {
