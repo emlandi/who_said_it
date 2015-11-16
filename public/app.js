@@ -5,25 +5,24 @@ function getQuote() {
     url: 'api/'
   }).done(function(data) {
     object = JSON.parse(data)
-    $('#quote').html(object.quote);
-  });
+    $('#quote').html('"' + object.quote + '"');
+  })
 };
-//highlights left photo when clicked
+//left button clicked adds border & shows pic/name
 $('#person1').click(function(){
   $(this).attr("class", "clicked");
   $('#person2').attr("class", "");
   $('#answer').html(object.person);
   $('#answer').append('<br><img src="/imgs/' + object.person + '.jpg">');
 });
-
-//highlights right photo when clicked
+//right button clicked adds border & shows pic/name
 $('#person2').click(function(){
   $(this).attr("class", "clicked");
   $('#person1').attr("class", "");
   $('#answer').html(object.person);
   $('#answer').append('<br><img src="/imgs/' + object.person + '.jpg">');
 });
-//next button removes border/class and gets new quote
+//next button clicked removes border/pic/name and gets new quote
 $('#next').click(function(){
   getQuote();
   $('#answer').html("");

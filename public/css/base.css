@@ -6,7 +6,6 @@ body {
   padding: 1em;
   text-align: center;
   line-height: 1.25em;
-  height: 1000px;
 }
 
 h1 {
@@ -46,7 +45,8 @@ input {
 
 #answer {
   font-size: 2em;
-  text-transform: uppercase;;
+  text-transform: uppercase;
+  margin-bottom: 5em;
 }
 
 footer {
