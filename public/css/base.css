@@ -1,0 +1,71 @@
+body {
+  font-family: 'Annie Use Your Telescope', cursive;
+  background-color: #7AD2FF;
+  color: #262626;
+  font-size: 1em;
+  padding: 1em;
+  text-align: center;
+  line-height: 1.25em;
+}
+
+h1 {
+  font-family: 'Michroma', sans-serif;
+  color: #F23004;
+  font-size: 3em;
+  text-align: center;
+}
+
+h2,
+h3 {
+  font-family: 'Michroma', sans-serif;
+  color: #F23004;
+  font-size: 1.75em;
+  text-align: center;
+}
+
+blockquote {
+  font-size:  3em;
+  text-align: center;
+  color: #262626;
+}
+
+input {
+  background-color: #04B9FF;
+  color: #FFFCFF;
+  text-align: center;
+  padding: .5em;
+  margin: 5%;
+  display: inline-block;
+}
+
+.clicked {
+  border: medium solid #262626;
+}
+
+#answer {
+  font-size: 2em;
+  text-transform: uppercase;;
+}
+
+footer {
+  position: fixed;
+  height: 5.5em;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #04B9FF;
+  color: #FFFCFF;
+  text-align: center;
+  padding: .5%;
+}
+
+a,
+a:link {
+  color: #FFFCFF;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #262626;
+}
