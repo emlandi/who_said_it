@@ -17,8 +17,9 @@ q.save(function(err, data) {
 */
 
 quotesRouter.get('/', function(req, res) {
-  quoteChoices[randInt(0,2)].find({}, function(err, data) {
+  var choice = randInt(0,2);
+  quoteChoices[choice].find({}, function(err, data) {
     if (err) return handleError(err, data);
-    res.json(data[randInt(0, data.length)]);
+    res.json([data[randInt(0, data.length)], choice]);
   });
 });
