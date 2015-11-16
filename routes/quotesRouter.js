@@ -16,3 +16,13 @@ quotesRouter.get('/', function(req, res) {
     res.json(JSON.stringify(data[randInt(0, data.length)]));
   });
 });
+
+/*Need:
+-post route which accepts an ID and 'correct' or 'incorrect' string.  Will increment correctGuesses or incorrectGuesses in database.
+-get route which returns top 10 misattributed quotes
+-get route which returns top 10 correctly attributed quotes
+
+eventually:
+-get route which returns top 10 misattributed people
+-get route which returns top 10 correctly attributed people
+
