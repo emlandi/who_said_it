@@ -6,6 +6,7 @@ body {
   padding: 1em;
   text-align: center;
   line-height: 1.25em;
+  height: 1000px;
 }
 
 h1 {
@@ -27,6 +28,7 @@ blockquote {
   font-size:  3em;
   text-align: center;
   color: #262626;
+  line-height: 1.35em;
 }
 
 input {
