@@ -1,10 +1,9 @@
 //gets random quote
 function getQuote() {
-$.ajax({
+  $.ajax({
     url: 'api/'
   }).done(function(data) {
-
-    $('#quote').html(JSON.parse(data).quote.toString());
+    $('#quote').html(JSON.parse(data).quote);
   });
 };
 //highlights left photo when clicked
