@@ -3,7 +3,8 @@ function getQuote() {
 $.ajax({
     url: 'api/'
   }).done(function(data) {
-    $('#quote').html(JSON.stringify(data));
+
+    $('#quote').html(JSON.parse(data).quote.toString());
   });
 };
 //highlights left photo when clicked
@@ -25,4 +26,3 @@ $('#next').click(function(){
 });
 
 getQuote();
-
