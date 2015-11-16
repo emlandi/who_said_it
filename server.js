@@ -2,7 +2,7 @@ var app = require('express')();
 var mongoose = require('mongoose');
 var quotesRouter = require(__dirname + '/routes/quotesRouter');
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/quotes_dev');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/learn');
 
 app.use('/api', quotesRouter);
 

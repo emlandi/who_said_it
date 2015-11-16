@@ -7,5 +7,5 @@ var quoteSchema = new mongoose.Schema({
   incorrectGuesses: {type: Number, default: 0}
 });
 
-module.exports.candidateQuote = new mongoose.Model('CandidateQuote', quoteSchema);
-module.exports.dictatorQuote = new mongoose.Model('DictatorQuote', quoteSchema);
+module.exports.candidateQuote = mongoose.model('CandidateQuote', quoteSchema);
+module.exports.dictatorQuote = mongoose.model('DictatorQuote', quoteSchema);
