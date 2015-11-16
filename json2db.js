@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-var CandidateQuote = require(__dirname + '/models/quote').candidateQuote;
-var DictatorQuote = require(__dirname + '/models/quote').dictatorQuote;
+var CandidateQuote = require(__dirname + '/models/candidateQuote');
+var DictatorQuote = require(__dirname + '/models/dictatorQuote');
 var fs = require('fs');
 
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/quote_dev');
