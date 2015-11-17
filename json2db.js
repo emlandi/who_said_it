@@ -5,11 +5,20 @@ var fs = require('fs');
 
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/quote_dev');
 
-var json = JSON.parse(fs.readFileSync('dictators.json'));
+var dictatorsJson = JSON.parse(fs.readFileSync('dictators.json'));
+var candidatesJson = JSON.parse(fs.readFileSync('candidates.json'));
 
-for (var key in json) {
-  for (var element in json[key]) {
-    var quote = new DictatorQuote({person: key, quote: json[key][element]});
+for (var key in dictatorsJson) {
+  for (var element in dictatorsJson[key]) {
+    var quote = new DictatorQuote({person: key, quote: dictatorsJson[key][element]});
+    quote.save();
+    console.log(quote);
+  }
+}
+
+for (var key in candidatesJson) {
+  for (var element in candidatesJson[key]) {
+    var quote = new CandidateQuote({person: key, quote: candidatesJson[key][element]});
     quote.save();
     console.log(quote);
   }
@@ -17,5 +26,8 @@ for (var key in json) {
 
 DictatorQuote.count({}, function(err, count) {
   console.log('There are ' + count + ' dictator quotes in the database.');
-  mongoose.disconnect();
+});
+
+CandidateQuote.count({}, function(err, count) {
+  console.log('There are ' + count + ' candidate quotes in the database.');
 });
