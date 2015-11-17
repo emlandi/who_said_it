@@ -8,7 +8,6 @@ function getQuote() {
     $('#quote').html('"' + object.quote + '"');
     console.log(data);
   });
-
 }
 
 function makeChoice(choice) {
@@ -19,10 +18,7 @@ function makeChoice(choice) {
   } else {
       $('#answer').append('<br>Your guess was incorrect.');
   }
-
-  $('#answer').append
   $('#overlay').fadeIn(400);
-
 }
 
 $('.choice').click(function() {
