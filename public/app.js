@@ -1,23 +1,39 @@
-var object;
+var quoteObj;
 //gets random quote
 function getQuote() {
   $.ajax({
     url: 'api/'
   }).done(function(data) {
-    object = JSON.parse(data);
-    $('#quote').html('"' + object.quote + '"');
+    quoteObj = JSON.parse(data);
+    $('#quote').html('"' + quoteObj.quote + '"');
   });
 }
 
+function submitAnswer(answer) {
+  var data = {
+    quoteObj: quoteObj,
+    answer: answer
+  };
+  $.ajax({
+    method: 'PATCH',
+    url: 'api/',
+    data: data
+  });
+}
+
+
 function makeChoice(choice) {
-  $('#answer').html(object.person);
-  $('#answer').append('<br><img src="/imgs/' + object.person + '.jpg" height="300" width="300">');
-  if (choice === object.category) {
+  $('#answer').html(quoteObj.person);
+  $('#answer').append('<br><img src="/imgs/' + quoteObj.person + '.jpg" height="300" width="300">');
+  if (choice === quoteObj.category) {
       $('#answer').append('<br>Your guess was correct!');
+      submitAnswer('correct');
   } else {
       $('#answer').append('<br>Your guess was incorrect.');
+      submitAnswer('incorrect');
   }
   $('#overlay').fadeIn(400);
+
 }
 
 $('.choice').click(function() {
