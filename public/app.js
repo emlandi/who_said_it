@@ -6,7 +6,6 @@ function getQuote() {
   }).done(function(data) {
     object = JSON.parse(data);
     $('#quote').html('"' + object.quote + '"');
-    console.log(data);
   });
 }
 
@@ -23,13 +22,14 @@ function makeChoice(choice) {
 
 $('.choice').click(function() {
   makeChoice(this.id);
-  console.log(this.id);
 });
 
 $('#next').click(function(){
-  $('#answer').html("");
-  $('#overlay').fadeOut();
   getQuote();
+  $('#overlay').fadeOut(400, function() {
+    $('#answer').html("");
+  });
+
 });
 
 getQuote();
