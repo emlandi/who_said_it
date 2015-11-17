@@ -3,16 +3,12 @@ var chaihttp = require('chai-http');
 chai.use(chaihttp);
 var expect = chai.expect;
 var mongoose = require('mongoose');
-// var bodyParser = require('body-parser');
 
 process.env.MONGOLAB_URI = 'mongodb://localhost/quote_dev';
 
 require(__dirname + '/../server');
 var CandidateQuote = require(__dirname + '/../models/candidateQuote');
 var DictatorQuote = require(__dirname + '/../models/dictatorQuote');
-// var quoteChoices = [CandidateQuote, DictatorQuote];
-// var handleError = require(__dirname + '/../lib/handleError');
-// var randInt = require(__dirname + '/../lib/randInt');
 
 describe('quotes routes', function() {
   after(function(done) {
@@ -21,12 +17,9 @@ describe('quotes routes', function() {
     });
   });
 
-  it('should POST new quote');
-  it('should NOT POST if missing person or quote fields');
-
-  describe('get & put routes', function() {
+  describe('GET & PUT routes', function() {
     beforeEach(function(done) {
-      (new DictatorQuote({person: 'You', quote: 'Hate', category: 'Dictator', correctGuesses: 0})).save(function(err, data) {
+      (new DictatorQuote({person: 'You', quote: 'Hate', category: 'Dictator'})).save(function(err, data) {
         expect(err).to.eql(null);
         this.dictatorQuote = data;
         done();
@@ -34,7 +27,7 @@ describe('quotes routes', function() {
     });
 
     beforeEach(function(done) {
-      (new CandidateQuote({person: 'Me', quote: 'Love', category: 'Candidate', correctGuesses: 0})).save(function(err, data) {
+      (new CandidateQuote({person: 'Me', quote: 'Love', category: 'Candidate'})).save(function(err, data) {
         expect(err).to.eql(null);
         this.candidateQuote = data;
         done();
@@ -58,7 +51,8 @@ describe('quotes routes', function() {
         done();
       });
     });
-
+  });
+});
     // it('should update(PUT) correct guesses field', function(done) {
     //   chai.request('localhost:3000')
     //     .put('/api/' + this.dictatorQuote._id)
@@ -69,5 +63,4 @@ describe('quotes routes', function() {
     //       done();
     //     });
     // });
-  });
-});
+
