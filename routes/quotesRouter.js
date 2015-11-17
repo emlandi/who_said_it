@@ -17,7 +17,7 @@ quotesRouter.get('/', function(req, res) {
   });
 });
 
-/*Need:
+/* Need:
 -patch route which accepts an ID and 'correct' or 'incorrect' string.  Will increment correctGuesses or incorrectGuesses in database.
 -get route which returns top 10 misattributed quotes
 -get route which returns top 10 correctly attributed quotes
@@ -25,4 +25,4 @@ quotesRouter.get('/', function(req, res) {
 eventually:
 -get route which returns top 10 misattributed people
 -get route which returns top 10 correctly attributed people
-
+*/
