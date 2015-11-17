@@ -3,26 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link href='https://fonts.googleapis.com/css?family=Michroma|Annie+Use+Your+Telescope' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Michroma|Roboto+Condensed|Josefin+Sans:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <title>Who Said It?</title>
   </head>
   <body>
-
-    <h1>Who Said It?</h1>
-    <h3>A game of political & historical knowledge</h3>
+    <header>
+      <h1>Who Said It?</h1>
+    </header>
 
     <blockquote id="quote"></blockquote>
 
-    <input type="button" id="person1" value="Candidate">
-    <input type="button" id="next" value="Next">
-    <input type="button" id="person2" value="Dictator">
-    <p id="answer"></p>
+    <button type="button" id="Candidate" class="choice">Presidential Candidate</button>
+    <button type="button" id="Dictator" class="choice">Evil Dictator</button>
+    <div id="overlay">
+      <p id="answer"></p>
+      <button type="button" id="next">Next</button>
+    </div>
 
-    <footer>
-      <p>A project for Code Fellows JSDA, by: Emily, Tim & Will</p>
-      <a href="https://github.com/emlandi/who_said_it">Github</a>
-    </footer>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
