@@ -21,22 +21,21 @@ quotesRouter.get('/', function(req, res) {
 
 quotesRouter.post('/', bodyParser.json(), function (req, res){
   var person = req.body.quoteObj;
-  console.log(person);
+  console.log(req.body.answer);
   if(req.body.answer === 'correct') {
-    choiceKey[person.category].findOneAndUpdate({_id: person._id}, { $inc: {correctGuesses: 1}});
-    console.log(req.body.answer);
-    console.log(person);
+    choiceKey[person.category].update({_id: person._id}, { $inc: {correctGuesses: 1}}, function(err) {
+      if (err) return handleError(err, res);
+    });
   } else {
-    choiceKey[person.category].findOneAndUpdate({_id: person._id}, { $inc: {incorrectGuesses: 1}});
-    console.log(req.body.answer);
-    console.log(person);
+    choiceKey[person.category].update({_id: person._id}, { $inc: {incorrectGuesses: 1}}, function(err) {
+      if (err) return handleError(err, res);
+    });
   }
 });
 
 // quotesRouter.get('/', function(req, res){
 // quotesRouter.get('/', function(req, res){
 
-// });
 
 /* Need:
 -patch route which accepts an ID and 'correct' or 'incorrect' string.  Will increment correctGuesses or incorrectGuesses in database.
