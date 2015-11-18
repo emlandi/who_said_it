@@ -4,7 +4,7 @@ chai.use(chaihttp);
 var expect = chai.expect;
 var mongoose = require('mongoose');
 
-process.env.MONGOLAB_URI = 'mongodb://localhost/quote_dev';
+process.env.MONGOLAB_URI = 'mongodb://localhost/quote_dev_test';
 
 require(__dirname + '/../server');
 var CandidateQuote = require(__dirname + '/../models/candidateQuote');
