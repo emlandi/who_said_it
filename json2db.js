@@ -3,7 +3,7 @@ var CandidateQuote = require(__dirname + '/models/candidateQuote');
 var DictatorQuote = require(__dirname + '/models/dictatorQuote');
 var fs = require('fs');
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/quote_dev');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_2vlx1nvf:c7ce5db82vk3gpalhhnp629s51@ds041164.mongolab.com:41164/heroku_2vlx1nvf');
 
 var dictatorsJson = JSON.parse(fs.readFileSync('dictators.json'));
 var candidatesJson = JSON.parse(fs.readFileSync('candidates.json'));

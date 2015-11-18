@@ -1,0 +1,30 @@
+h2 {
+  margin-top: 3em;
+}
+img {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  margin: .75em;
+  border-radius: 100%;
+  border: .5em solid #30231d;
+}
+p {
+  display: inline-block;
+  font-size: 1.5em;
+  line-height: 1em;
+  text-align: center;
+}
+#mid {
+  padding: 0 15% 0 15%;
+}
+a,
+a:link {
+  color: #b5a397;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #ffffff;
+}
