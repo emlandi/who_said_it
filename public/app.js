@@ -15,9 +15,10 @@ function submitAnswer(answer) {
     answer: answer
   };
   $.ajax({
-    method: 'PATCH',
+    method: 'POST',
     url: 'api/',
-    data: data
+    contentType: 'application/json',
+    data: JSON.stringify(data)
   });
 }
 
