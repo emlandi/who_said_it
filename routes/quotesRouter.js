@@ -21,18 +21,26 @@ quotesRouter.get('/', function(req, res) {
 
 quotesRouter.post('/', bodyParser.json(), function (req, res){
   var person = req.body.quoteObj;
-  console.log(person);
+  console.log(req.body.answer);
   if(req.body.answer === 'correct') {
-    choiceKey[person.category].findOneAndUpdate({_id: person._id}, { $inc: {correctGuesses: 1}});
-    console.log(req.body.answer);
-    console.log(person);
+    choiceKey[person.category].update({_id: person._id}, { $inc: {correctGuesses: 1}}, function(err, data) {
+      if (err) return handleError(err, res);
+    });
+
   } else {
-    choiceKey[person.category].findOneAndUpdate({_id: person._id}, { $inc: {incorrectGuesses: 1}});
-    console.log(req.body.answer);
-    console.log(person);
+    choiceKey[person.category].update({_id: person._id}, { $inc: {incorrectGuesses: 1}}, function(err, data) {
+      if (err) return handleError(err, res);
+    });
   }
 });
 
+quotesRouter.get('/test', function(req, res) {
+  var choice = randInt(0,2);
+  quoteChoices[choice].find({}, function(err, data) {
+    if (err) return handleError(err, res);
+    res.json(JSON.stringify(data.slice(0, 5)));
+  });
+});
 // quotesRouter.get('/', function(req, res){
 
 // });
