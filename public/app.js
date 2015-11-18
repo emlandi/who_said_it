@@ -1,5 +1,5 @@
 var quoteObj;
-//gets random quote
+
 function getQuote() {
   $.ajax({
     url: 'api/'
@@ -21,7 +21,6 @@ function submitAnswer(answer) {
   });
 }
 
-
 function makeChoice(choice) {
   $('#answer').html(quoteObj.person);
   $('#answer').append('<br><img src="/imgs/' + quoteObj.person + '.jpg" height="300" width="300">');
@@ -33,7 +32,6 @@ function makeChoice(choice) {
       submitAnswer('incorrect');
   }
   $('#overlay').fadeIn(400);
-
 }
 
 $('.choice').click(function() {
@@ -45,7 +43,6 @@ $('#next').click(function(){
   $('#overlay').fadeOut(400, function() {
     $('#answer').html("");
   });
-
 });
 
 getQuote();
