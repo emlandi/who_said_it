@@ -118,3 +118,41 @@ button:hover {
   margin: 10px;
   border-radius: 100%
 }
+
+#stats {
+  max-width: 40%;
+  padding: 50px 0 0 0;
+  margin: 0 2.5% 2.5% 0;
+  list-style-type: none;
+  color: #f6f1ed;
+  display: inline-block;
+}
+
+#stats li {
+  margin-top: 25px;
+  padding-top: 15px;
+}
+
+#stats p {
+  font-size: 0.3em;
+  margin: 5px;
+}
+
+#stats > span {
+  text-align: center;
+  font-size: 2em;
+  margin: 10px;
+  position: relative;
+  top: 15px;
+}
+
+#stats li span {
+  font-size: 3.5em;
+  float: left;
+}
+
+#stats img {
+  height: 1em;
+  width: 1em;
+  border-radius: 100%;
+}
