@@ -17,9 +17,9 @@ function submitAnswer(answer) {
   $.ajax({
     method: 'POST',
     url: 'api/',
+    contentType: 'application/json',
     data: JSON.stringify(data)
   });
-console.log(JSON.stringify(data));
 }
 
 
