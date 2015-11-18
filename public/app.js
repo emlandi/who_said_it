@@ -1,5 +1,5 @@
 var quoteObj;
-//gets random quote
+
 function getQuote() {
   $.ajax({
     url: 'api/'
@@ -15,12 +15,12 @@ function submitAnswer(answer) {
     answer: answer
   };
   $.ajax({
-    method: 'PATCH',
+    method: 'POST',
     url: 'api/',
-    data: data
+    contentType: 'application/json',
+    data: JSON.stringify(data)
   });
 }
-
 
 function makeChoice(choice) {
   $('#answer').html(quoteObj.person);
@@ -33,7 +33,6 @@ function makeChoice(choice) {
       submitAnswer('incorrect');
   }
   $('#overlay').fadeIn(400);
-
 }
 
 $('.choice').click(function() {
@@ -45,7 +44,6 @@ $('#next').click(function(){
   $('#overlay').fadeOut(400, function() {
     $('#answer').html("");
   });
-
 });
 
 getQuote();
