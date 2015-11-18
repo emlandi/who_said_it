@@ -15,11 +15,13 @@ function submitAnswer(answer) {
     answer: answer
   };
   $.ajax({
-    method: 'PATCH',
+    method: 'POST',
     url: 'api/',
-    data: data
+    data: JSON.stringify(data)
   });
+console.log(JSON.stringify(data));
 }
+
 
 
 function makeChoice(choice) {
