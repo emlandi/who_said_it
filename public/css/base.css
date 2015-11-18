@@ -1,6 +1,7 @@
 body {
-  font-family: 'Annie Use Your Telescope', cursive;
-  background-color: #7AD2FF;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  background-color: #6a5750;
   color: #262626;
   font-size: 1em;
   padding: 1em;
@@ -10,64 +11,110 @@ body {
 
 h1 {
   font-family: 'Michroma', sans-serif;
-  color: #F23004;
-  font-size: 3em;
-  text-align: center;
+  color: #b5a397;
+  font-size: 2em;
+  text-align: left;
+  padding-left: 0.5em;
+  display: inline;
+  float: left;
 }
 
 h2,
 h3 {
   font-family: 'Michroma', sans-serif;
-  color: #F23004;
+  color: #b5a397;
   font-size: 1.75em;
   text-align: center;
+}
+
+header {
+  position: fixed;
+  height: 3em;
+  left: 0;
+  top: 0;
+  right: 0;
+  background-color: #30231d;
+  color: #b0a18e;
+  text-align: center;
+  padding: .5%;
+  line-height: 0.5em;
+}
+
+nav {
+  background: #30231d;
+  text-align: center;
+  padding: 10px 0;
+  float: right;
+  padding: 2em 2em 0 0;
+}
+
+nav ul {
+  margin: 0 10px;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  font-weight: 800;
+  padding: 15px 10px;
+  text-decoration: none;
+  color: #b0a18e;
+}
+
+nav a.selected {
+  color: #f6f1ed;
+}
+
+nav a:hover {
+  color: #f6f1ed;
 }
 
 blockquote {
   font-size:  3em;
   text-align: center;
-  color: #262626;
+  color: #f6f1ed;
   line-height: 1.35em;
+  margin: 75px auto 25px;
+  max-width: 700px
 }
 
-input {
-  background-color: #04B9FF;
-  color: #FFFCFF;
-  text-align: center;
-  padding: .5em;
-  margin: 5%;
-  display: inline-block;
+button {
+  border-radius: 4px;
+  font-family: 'Roboto Condensed';
+  color: #b5a397;
+  font-size: 1.5em;
+  background: #30231d;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
 }
 
-.clicked {
-  border: medium solid #262626;
+button:hover {
+  color: #f6f1ed;
+  text-decoration: none;
 }
 
 #answer {
   font-size: 2em;
-  text-transform: uppercase;
-  margin-bottom: 5em;
+  color: #f6f1ed;
 }
 
-footer {
+#overlay {
+  background: rgba(0,0,0,.9);
+  width: 100%;
+  height: 100%;
   position: fixed;
-  height: 5.5em;
+  top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: #04B9FF;
-  color: #FFFCFF;
+  display: none;
   text-align: center;
-  padding: .5%;
+
 }
 
-a,
-a:link {
-  color: #FFFCFF;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  color: #262626;
+#overlay p img {
+  margin: 10px;
+  border-radius: 100%
 }
