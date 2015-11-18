@@ -17,12 +17,22 @@ quotesRouter.get('/', function(req, res) {
   });
 });
 
+quotesRouter.post('/', bodyParser.text(), function (req, res){
+  console.log(req.body);
+  debugger;
+
+});
+
+quotesRouter.get('/', function(req, res){
+
+});
+
+quotesRouter.get('/', function(req, res){
+
+});
+
 /* Need:
 -patch route which accepts an ID and 'correct' or 'incorrect' string.  Will increment correctGuesses or incorrectGuesses in database.
 -get route which returns top 10 misattributed quotes
 -get route which returns top 10 correctly attributed quotes
-
-eventually:
--get route which returns top 10 misattributed people
--get route which returns top 10 correctly attributed people
 */
