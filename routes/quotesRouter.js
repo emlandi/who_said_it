@@ -35,14 +35,13 @@ quotesRouter.post('/', bodyParser.json(), function (req, res){
   }
 });
 
-// function percentCorrect(quoteObj) {
-//   var correct = quoteObj.correctGuesses;
-//   var incorrect = quoteObj.incorrectGuesses;
-//   var total = correct + incorrect;
-//   var percent = (correct / total) * 100;
-//   if (isNaN(percent) || !isFinite(percent)) percent = 0;
-//   return Math.floor(percent);
-// }
+function total(quoteObj) {
+  var correct = quoteObj.correctGuesses;
+  var incorrect = quoteObj.incorrectGuesses;
+  var total = correct + incorrect;
+
+  return total;
+}
 
 quotesRouter.get('/stats', function(req, res) {
 
@@ -51,6 +50,9 @@ quotesRouter.get('/stats', function(req, res) {
     CandidateQuote.find({}, function(err, candidateData) {
       if (err) return handleError(err, res);
       var all = dictatorData.concat(candidateData);
+      all.sort(function(a, b) {
+        return total(b) - total (a);
+      });
       var sorted = all.sort(function (a, b) {
         return percentCorrect(b) - percentCorrect(a);
       });
