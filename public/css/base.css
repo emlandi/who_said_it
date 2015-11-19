@@ -126,6 +126,7 @@ button:hover {
   list-style-type: none;
   color: #f6f1ed;
   display: inline-block;
+  flex-grow: 1;
 }
 
 .stats li {
@@ -156,4 +157,8 @@ button:hover {
   height: 0.8em;
   width: 0.8em;
   border-radius: 100%;
+}
+
+.statsalign {
+  display: flex;
 }
