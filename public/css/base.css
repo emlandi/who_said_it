@@ -119,7 +119,7 @@ button:hover {
   border-radius: 100%
 }
 
-#stats {
+.stats {
   max-width: 40%;
   padding: 50px 0 0 0;
   margin: 0 2.5% 2.5% 0;
@@ -128,31 +128,32 @@ button:hover {
   display: inline-block;
 }
 
-#stats li {
-  margin-top: 25px;
-  padding-top: 15px;
+.stats li {
+  min-height: 110px
 }
 
-#stats p {
-  font-size: 0.3em;
+.stats p {
+  font-size: 0.25em;
   margin: 5px;
 }
 
-#stats > span {
+.stats > span {
   text-align: center;
   font-size: 2em;
-  margin: 10px;
+  margin-bottom: 40px;
   position: relative;
   top: 15px;
+  display: block;
+  z-index: -1;
 }
 
-#stats li span {
+.stats li span {
   font-size: 3.5em;
   float: left;
 }
 
-#stats img {
-  height: 1em;
-  width: 1em;
+.stats img {
+  height: 0.8em;
+  width: 0.8em;
   border-radius: 100%;
 }
