@@ -1,11 +1,14 @@
 var quoteObj;
 
 function getQuote() {
+  $('.choice').attr('disabled', true);
+  $('#quote').html('Loading...');
   $.ajax({
     url: 'api/'
   }).done(function(data) {
     quoteObj = JSON.parse(data);
     $('#quote').html('"' + quoteObj.quote + '"');
+    $('.choice').attr('disabled', false);
   });
 }
 
