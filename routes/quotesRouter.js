@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var handleError = require(__dirname + '/../lib/handleError');
 var randInt = require(__dirname + '/../lib/randInt');
+var percentCorrect = require(__dirname + '/../lib/percentcorrect');
 
 quotesRouter = exports = module.exports = express.Router();
 
@@ -34,23 +35,29 @@ quotesRouter.post('/', bodyParser.json(), function (req, res){
   }
 });
 
-quotesRouter.get('/test', function(req, res) {
-  var choice = randInt(0,2);
-  quoteChoices[choice].find({}, function(err, data) {
+// function percentCorrect(quoteObj) {
+//   var correct = quoteObj.correctGuesses;
+//   var incorrect = quoteObj.incorrectGuesses;
+//   var total = correct + incorrect;
+//   var percent = (correct / total) * 100;
+//   if (isNaN(percent) || !isFinite(percent)) percent = 0;
+//   return Math.floor(percent);
+// }
+
+quotesRouter.get('/stats', function(req, res) {
+
+  DictatorQuote.find({}, function(err, dictatorData) {
     if (err) return handleError(err, res);
-    res.json(JSON.stringify(data.slice(0, 5)));
+    CandidateQuote.find({}, function(err, candidateData) {
+      if (err) return handleError(err, res);
+      var all = dictatorData.concat(candidateData);
+      var sorted = all.sort(function (a, b) {
+        return percentCorrect(b) - percentCorrect(a);
+      });
+      var results = {top: sorted.slice(0, 10),
+                     bottom: sorted.slice(-10)};
+      res.send(JSON.stringify(results));
+
+    });
   });
 });
-// quotesRouter.get('/', function(req, res){
-
-// });
-
-// quotesRouter.get('/', function(req, res){
-
-// });
-
-/* Need:
--patch route which accepts an ID and 'correct' or 'incorrect' string.  Will increment correctGuesses or incorrectGuesses in database.
--get route which returns top 10 misattributed quotes
--get route which returns top 10 correctly attributed quotes
-*/
