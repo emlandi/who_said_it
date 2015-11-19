@@ -120,12 +120,11 @@ button:hover {
 }
 
 .stats {
-  max-width: 40%;
+  width: 45%;
   padding: 50px 0 0 0;
-  margin: 0 2.5% 2.5% 0;
+  margin: 0 2.5% 0 2.5%;
   list-style-type: none;
   color: #f6f1ed;
-  display: inline-block;
 }
 
 .stats li {
@@ -156,4 +155,8 @@ button:hover {
   height: 0.8em;
   width: 0.8em;
   border-radius: 100%;
+}
+
+.statsalign {
+  display: flex;
 }
