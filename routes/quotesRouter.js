@@ -35,17 +35,35 @@ quotesRouter.post('/', bodyParser.json(), function (req, res){
   }
 });
 
+function total(quoteObj) {
+  var correct = quoteObj.correctGuesses;
+  var incorrect = quoteObj.incorrectGuesses;
+  var total = correct + incorrect;
+
+  return total;
+}
+
 quotesRouter.get('/stats', function(req, res) {
   DictatorQuote.find({}, function(err, dictatorData) {
     if (err) return handleError(err, res);
     CandidateQuote.find({}, function(err, candidateData) {
       if (err) return handleError(err, res);
       var all = dictatorData.concat(candidateData);
-      var sorted = all.sort(function (a, b) {
-        return percentCorrect(b) - percentCorrect(a);
+      var correct = all.sort(function (a, b) {
+        return b.correctGuesses - a.correctGuesses;
       });
-      var results = {top: sorted.slice(0, 10),
-                     bottom: sorted.slice(-10)};
+      var incorrect = all.slice().sort(function (a, b) {
+        return b.incorrectGuesses - a.incorrectGuesses;
+      });      // sorted.sort(function(a, b) {
+      //   if (percentCorrect(a) === 100 && percentCorrect(b) === 100) {
+      //     return total(b) - total(a);
+      //   } else {
+      //     return 0;
+      //   }
+      // });
+
+      var results = {top: correct.slice(0, 10),
+                     bottom: incorrect.slice(0, 10)};
       res.send(JSON.stringify(results));
     });
   });
