@@ -21,15 +21,16 @@ quotesRouter.get('/', function(req, res) {
 
 quotesRouter.post('/', bodyParser.json(), function (req, res){
   var person = req.body.quoteObj;
-  console.log(req.body.answer);
+  // console.log(req.body.quoteObj);
   if(req.body.answer === 'correct') {
     choiceKey[person.category].update({_id: person._id}, { $inc: {correctGuesses: 1}}, function(err, data) {
       if (err) return handleError(err, res);
+      res.json({msg: 'update successful'});
     });
-
   } else {
     choiceKey[person.category].update({_id: person._id}, { $inc: {incorrectGuesses: 1}}, function(err, data) {
       if (err) return handleError(err, res);
+      res.json({msg: 'update successful'});
     });
   }
 });
