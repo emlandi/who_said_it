@@ -21,7 +21,6 @@ quotesRouter.get('/', function(req, res) {
 
 quotesRouter.post('/', bodyParser.json(), function (req, res){
   var person = req.body.quoteObj;
-  // console.log(req.body.quoteObj);
   if(req.body.answer === 'correct') {
     choiceKey[person.category].update({_id: person._id}, { $inc: {correctGuesses: 1}}, function(err, data) {
       if (err) return handleError(err, res);
@@ -36,18 +35,29 @@ quotesRouter.post('/', bodyParser.json(), function (req, res){
 });
 
 quotesRouter.get('/test', function(req, res) {
-  var choice = randInt(0,2);
-  quoteChoices[choice].find({}, function(err, data) {
+  DictatorQuote.aggregate([{ $sort: {correctGuesses: -1}}], function(err, data) {
     if (err) return handleError(err, res);
-    res.json(JSON.stringify(data.slice(0, 5)));
+    res.json(data.slice(0, 5));
+    //This info is correct. Need to get it to populate in stats.html via stats.js
+    console.log(data[0].quote + "  " + data[0].person + "  " + data[0].correctGuesses);
+    console.log(data[1].quote + "  " + data[1].person + "  " + data[1].correctGuesses);
+    console.log(data[2].quote + "  " + data[2].person + "  " + data[2].correctGuesses);
+    console.log(data[3].quote + "  " + data[3].person + "  " + data[3].correctGuesses);
+    console.log(data[4].quote + "  " + data[4].person + "  " + data[4].correctGuesses);
   });
+
+  // CandidateQuote.aggregate([{ $sort: {correctGuesses: -1}}], function(err, data) {
+  //   if (err) return handleError(err, res);
+  //   res.json(JSON.stringify(data.slice(0, 5)));
+  // });
+
+  // DictatorQuote.aggregate([{ $sort: {incorrectGuesses: -1}}], function(err, data) {
+  //   if (err) return handleError(err, res);
+  //   res.json(JSON.stringify(data.slice(0, 5)));
+  // });
+
+  // CandidateQuote.aggregate([{ $sort: {incorrectGuesses: -1}}], function(err, data) {
+  //   if (err) return handleError(err, res);
+  //   res.json(JSON.stringify(data.slice(0, 5)));
+  // });
 });
-// quotesRouter.get('/', function(req, res){
-// quotesRouter.get('/', function(req, res){
-
-
-/* Need:
--patch route which accepts an ID and 'correct' or 'incorrect' string.  Will increment correctGuesses or incorrectGuesses in database.
--get route which returns top 10 misattributed quotes
--get route which returns top 10 correctly attributed quotes
-*/

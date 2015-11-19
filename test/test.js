@@ -65,7 +65,7 @@ describe('quotes GET & POST routes', function() {
     });
   });
 
-    it('should update incorrect guesses field in candidateQuote db', function(done) {
+  it('should update incorrect guesses field in candidateQuote db', function(done) {
     chai.request('localhost:3000')
     .post('/api')
     .send(data = {quoteObj: this.candidateQuote, answer: 'incorrect'})
