@@ -20,9 +20,14 @@ function percentCorrect(quoteObj) {
 function makeHTML(quoteArray, id) {
   for (var i = 0; i < quoteArray.length; i++) {
     var percent = percentCorrect(quoteArray[i]);
+    var correct = quoteArray[i].correctGuesses;
+    var incorrect = quoteArray[i].incorrectGuesses;
+    var total = correct + incorrect;
 
     var $li = $('<li></li>');
-    var $p = $('<p>' + percent + '% guessed correctly</p>');
+    //var $p = $('<p>' + percent + '% guessed correctly</p>');
+    var $p = $('<p>' + correct + '/' + total + ' guessed correctly</p>');
+
     var $span = $('<span>#' + (i + 1) + '</span>');
     var $img = $('<img src="/imgs/' + quoteArray[i].person + '.jpg">');
 
