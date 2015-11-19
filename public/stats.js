@@ -1,9 +1,10 @@
 function getQuote() {
   $.ajax({
-    url: 'api/test'
+    url: 'api/stats'
   }).done(function(data) {
-    makeHTML(JSON.parse(data), '#misattributed');
-    makeHTML(JSON.parse(data), '#attributed');
+    var quotes = JSON.parse(data);
+    makeHTML(quotes.bottom, '#misattributed');
+    makeHTML(quotes.top, '#attributed');
   });
 }
 
