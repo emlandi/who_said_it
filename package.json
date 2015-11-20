@@ -1,6 +1,6 @@
 {
   "name": "who_said_it",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "JSDA Week 4 Project",
   "main": "server.js",
   "directories": {
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/emlandi/who_said_it.git"
   },
-  "author": "",
+  "author": "Emily Landi, Tim Mendoza & Will Kitchell",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/emlandi/who_said_it/issues"
