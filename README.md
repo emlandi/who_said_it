@@ -6,4 +6,4 @@ A quote will be displayed on the screen and user can choose whether they think t
 The stats page shows results of the top ten correctly attributed quotes and top ten incorrectly attributed quotes.
 
 The about page shows who worked on this project and links to each member's Github page.
-This app is live at: whodonesaidit.herokuapp.com
+This app is live at: [whodonesaidit.herokuapp.com](http://whodonesaidit.herokuapp.com)
